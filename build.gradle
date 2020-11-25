@@ -2,7 +2,7 @@ import java.text.SimpleDateFormat
 
 allprojects {
     group = 'com.baomidou'
-    version = "3.4.1"
+    version = "3.4.1.1-SNAPSHOT"
 }
 
 ext {
@@ -116,6 +116,7 @@ subprojects {
     jar {
         afterEvaluate {
             manifest {
+                attributes 'Implementation-Title': archiveBaseName
                 attributes 'Implementation-Version': archiveVersion
                 attributes 'Built-Gradle': gradle.gradleVersion
                 attributes 'Bundle-DocURL': 'https://mybatis.plus/'

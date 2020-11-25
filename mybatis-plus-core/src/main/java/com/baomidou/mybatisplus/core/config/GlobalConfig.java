@@ -113,21 +113,41 @@ public class GlobalConfig implements Serializable {
         private String schema;
         /**
          * db字段 format
-         * <li> 例: `%s` </li>
-         * <p> 对主键无效 </p>
+         * <p>
+         * 例: `%s`
+         * <p>
+         * 对主键无效
          *
          * @since 3.1.1
          */
         private String columnFormat;
         /**
-         * entity 的字段(property)的 format,
-         * 只有在 column as property 这种情况下生效
-         * <li> 例: `%s` </li>
-         * <p> 对主键无效 </p>
+         * entity 的字段(property)的 format,只有在 column as property 这种情况下生效
+         * <p>
+         * 例: `%s`
+         * <p>
+         * 对主键无效
          *
          * @since 3.3.0
          */
         private String propertyFormat;
+        /**
+         * 实验性功能,占位符替换,等同于 {@link com.baomidou.mybatisplus.extension.plugins.inner.ReplacePlaceholderInnerInterceptor},
+         * 只是这个属于启动时替换,用得地方多会启动慢一点点,不适用于其他的 {@link org.apache.ibatis.scripting.LanguageDriver}
+         *
+         * @since 3.4.2
+         */
+        private boolean replacePlaceholder;
+        /**
+         * 转义符
+         * <p>
+         * 配合 {@link #replacePlaceholder} 使用时有效
+         * <p>
+         * 例: " 或 ' 或 `
+         *
+         * @since 3.4.2
+         */
+        private String escapeSymbol;
         /**
          * 表名是否使用驼峰转下划线命名,只对表名生效
          */

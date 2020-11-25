@@ -50,6 +50,7 @@ import static java.util.stream.Collectors.joining;
 @Data
 @Setter(AccessLevel.PACKAGE)
 @Accessors(chain = true)
+@SuppressWarnings("serial")
 public class TableInfo implements Constants {
 
     /**
@@ -219,7 +220,7 @@ public class TableInfo implements Constants {
         if (havePK()) {
             sqlSelect = keyColumn;
             if (resultMap == null && keyRelated) {
-                sqlSelect += (" AS " + keyProperty);
+                sqlSelect += (AS + keyProperty);
             }
         } else {
             sqlSelect = EMPTY;
